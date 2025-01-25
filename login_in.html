@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Emergency Blood Delivery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f7;
+      margin: 0;
+      padding: 0;
+    }
+
+    .title-section {
+      text-align: center;
+      margin: 20px 0;
+      padding: 0 10px;
+    }
+
+    .title-section h1 {
+      margin: 0;
+      font-size: 24px;
+      color: #e74c3c;
+    }
+
+    .title-section p {
+      margin: 5px 0 20px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #555;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      background-color: #3498db;
+      color: #ffffff;
+      padding: 10px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .register-link {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .register-link a {
+      color: #3498db;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .register-link a:hover {
+      text-decoration: underline;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    /* Responsive Design for Mobile */
+    @media (max-width: 480px) {
+      .title-section h1 {
+        font-size: 20px;
+      }
+
+      .title-section p {
+        font-size: 13px;
+      }
+
+      .container {
+        margin: 20px 15px;
+        padding: 15px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        font-size: 14px;
+        padding: 8px;
+      }
+
+      button {
+        font-size: 16px;
+        padding: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Title Section -->
+  <div class="title-section">
+    <h1>Emergency Blood Delivery System</h1>
+    <p>Quickly connect with blood donors during medical emergencies</p>
+  </div>
+
+  <!-- Login Form -->
+  <div class="container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label for="mobile">Mobile Number</label>
+      <input type="text" id="mobile" name="mobile" placeholder="Enter your mobile number" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+      <button type="submit">Login</button>
+      <p id="errorMsg" class="error"></p>
+    </form>
+    <div class="register-link">
+      <p>Don't have an account? <a href="sign_up.html">Register Here</a></p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const mobile = document.getElementById('mobile').value;
+      const password = document.getElementById('password').value;
+      const errorMsg = document.getElementById('errorMsg');
+
+      if (mobile.length !== 10) {
+        errorMsg.textContent = "Mobile number must be 10 digits.";
+        return;
+      }
+
+      if (password.length < 6) {
+        errorMsg.textContent = "Password must be at least 6 characters.";
+        return;
+      }
+
+      errorMsg.textContent = "";
+      alert('Login Successful!');
+      // Redirect or perform further actions here
+    });
+  </script>
+</body>
+</html>
